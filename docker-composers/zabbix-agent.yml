@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  zabbix-agent:
+    container_name: a-zabbix-agent
+    environment:
+      ZBX_HOSTNAME: "zabbix-hostname"
+      ZBX_SERVER_HOST: "zabbix-server-mysql"
+    image: zabbix/zabbix-agent:latest
+    restart: unless-stopped

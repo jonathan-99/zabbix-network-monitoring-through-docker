@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  zabbix-java-gateway:
+    image: zabbix/zabbix-java-gateway:alpine-6.4-latest
+    container_name: zabbix-java-gateway
+    networks:
+      - zabbix-net
+    restart: unless-stopped
+
+networks:
+  zabbix-net:
+    external: true

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mysql-server:
+    image: mysql:8.0
+    container_name: mysql-server
+    environment:
+      MYSQL_DATABASE: "zabbix"
+      MYSQL_USER: "zabbix"
+      MYSQL_PASSWORD: "zabbix_pwd"
+      MYSQL_ROOT_PASSWORD: "root_pwd"
+      MYSQL_CHARACTER_SET_SERVER: "utf8"
+      MYSQL_COLLATION_SERVER: "utf8_bin"
+    networks:
+      - zabbix-net
+    restart: unless-stopped
+
+networks:
+  zabbix-net:
+    external: true

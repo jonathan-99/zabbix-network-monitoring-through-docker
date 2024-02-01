@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  zabbix-web-nginx-mysql:
+    image: zabbix/zabbix-web-nginx-mysql:alpine-6.4-latest
+    container_name: zabbix-web-nginx-mysql
+    environment:
+      ZBX_SERVER_HOST: "zabbix-server-mysql"
+      DB_SERVER_HOST: "mysql-server"
+      MYSQL_DATABASE: "zabbix"
+      MYSQL_USER: "zabbix"
+      MYSQL_PASSWORD: "zabbix_pwd"
+      MYSQL_ROOT_PASSWORD: "root_pwd"
+    networks:
+      - zabbix-net
+    ports:
+      - "80:8080"
+    restart: unless-stopped
+
+networks:
+  zabbix-net:
+    external: true

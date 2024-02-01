@@ -10,6 +10,7 @@ fi
 REMOTE_USER="$1"
 REMOTE_HOST="$2"
 REMOTE_SCRIPT="test_installation_script.sh"  # Path to the test script on the remote machine
+ZABBIX_PORT=10051  # Port number of the Zabbix server
 
 # Function to run commands remotely via SSH
 run_remote_command() {
@@ -34,6 +35,14 @@ run_remote_command 'docker-compose -f docker-composers/mysql-server.yml \
                -f docker-composers/zabbix-network.yml \
                -f docker-composers/zabbix-web-ng-mysql.yml \
                up -d'
+
+# Check if Zabbix server is up on its port
+echo "Checking if Zabbix server is up..."
+while ! nc -z "$REMOTE_HOST" "$ZABBIX_PORT"; do
+    echo "Zabbix server is not yet available. Waiting..."
+    sleep 10
+done
+echo "Zabbix server is up and running on port $ZABBIX_PORT."
 
 # Run a test script
 run_remote_command "sudo sh $REMOTE_SCRIPT"

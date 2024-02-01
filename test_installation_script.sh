@@ -32,3 +32,4 @@ else
     echo "Error: Docker Compose encountered an error."
     exit 1
 fi
+curl -s localhost:7000 >/dev/null && echo "Port 7000 is up and serving content" || echo "Port 7000 is either down or not serving content"

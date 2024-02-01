@@ -14,7 +14,7 @@ services:
     networks:
       - zabbix-net
     ports:
-      - "80:8080"
+      - "7000:8080"
     restart: unless-stopped
 
 networks:

@@ -1,9 +1,13 @@
 all:
   hosts:
-    pinas: 192.168.1.134
-    new1gb: 192.168.1.14
-    new2gb: 192.168.1.16
-    new3: 192.168.1.17
+    pinas:
+      ansible_host: 192.168.1.134
+    new1gb:
+      ansible_host: 192.168.1.14
+    new2gb:
+      ansible_host: 192.168.1.16
+    new3:
+      ansible_host: 192.168.1.17
 server:
   hosts:
     pinas: 192.168.1.134

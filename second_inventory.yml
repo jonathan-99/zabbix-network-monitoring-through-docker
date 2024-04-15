@@ -1,0 +1,8 @@
+server:
+  hosts:
+    pinas: 192.168.1.134
+agents:
+  hosts:
+    new1gb: 192.168.1.14
+    new2gb: 192.168.1.16
+    new3: 192.168.1.17

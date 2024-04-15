@@ -14,7 +14,7 @@ inventory = {
 }
 
 try:
-    print(json.dumps(inventory))
+    print(json.dumps(inventory, indent=4))
 except Exception as e:
     print(f"Error: {e}")
     exit(1)

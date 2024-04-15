@@ -2,9 +2,13 @@ all:
   hosts:
     pinas:
       ansible_host: 192.168.1.134
+      ping_target: 1.1.1.1
     new1gb:
       ansible_host: 192.168.1.14
+      ping_target: 8.8.8.8
     new2gb:
       ansible_host: 192.168.1.16
+      ping_target: 8.8.4.4
     new3:
       ansible_host: 192.168.1.17
+      ping_target: 208.67.222.222
